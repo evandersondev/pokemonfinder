@@ -5,9 +5,9 @@ PokFinder
 </h1>
 <br>
 <br>
-  <img src="./src/images/screen-view.png" alt="YOUR_PROJECT_NAME" width="49%">
+  <img  src="./src/images/screen-view.png" alt="YOUR_PROJECT_NAME" width="100%">
 
-  <img src="./src/images/screen-notfound.png" alt="YOUR_PROJECT_NAME" width="49%">
+  <img src="./src/images/screen-notfound.png" alt="YOUR_PROJECT_NAME" width="100%">
 <br>
 <br>
 <br>
