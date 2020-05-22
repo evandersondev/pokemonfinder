@@ -13,7 +13,7 @@ export const Container = styled.div`
     margin: auto;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
   }
 
   .logo {
@@ -31,20 +31,6 @@ export const Container = styled.div`
     img {
       height: 34px;
       margin-right: 15px;
-    }
-  }
-
-  .social {
-    display: flex;
-    align-items: center;
-
-    a {
-      margin-left: 15px;
-      transition: all 0.3s;
-
-      &:hover {
-        filter: brightness(70%);
-      }
     }
   }
 `;

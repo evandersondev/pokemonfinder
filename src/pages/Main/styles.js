@@ -4,12 +4,13 @@ export const Container = styled.div`
   width: 90%;
   max-width: 920px;
   margin: auto;
+  height: calc(100% - 140px);
 `;
 export const Pagination = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 90px;
+  margin-bottom: 30px;
 
   button {
     width: 120px;

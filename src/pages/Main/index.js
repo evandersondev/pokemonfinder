@@ -14,6 +14,7 @@ export default () => {
 
   const fetchPokemon = async (page = 0) => {
     setloading(true);
+
     const {
       data: { results, next, previous },
     } = await api.get('/pokemon', {

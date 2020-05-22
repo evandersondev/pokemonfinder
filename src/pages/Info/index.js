@@ -11,9 +11,13 @@ import {
 } from './styles';
 
 export default ({ location: { state } }) => {
-  const [over, setOver] = useState(false);
+  const [showBack, setShowBack] = useState(false);
   const { pokemonInfo } = state;
   const history = useHistory();
+
+  const clickShowBack = () => {
+    !showBack ? setShowBack(true) : setShowBack(false);
+  };
 
   return (
     <Container>
@@ -26,14 +30,13 @@ export default ({ location: { state } }) => {
 
         <div className="image-container">
           <img
-            onMouseOver={() => setOver(true)}
-            onMouseOut={() => setOver(false)}
-            onFocus={() => setOver(true)}
-            onBlur={() => setOver(false)}
-            src={over ? pokemonInfo.sprites.back : pokemonInfo.sprites.front}
+            onClick={clickShowBack}
+            src={
+              showBack ? pokemonInfo.sprites.back : pokemonInfo.sprites.front
+            }
             alt="ImagePokemon"
           />
-          <span>mouse over to see my back</span>
+          <span>click to see my back</span>
         </div>
 
         <strong>
