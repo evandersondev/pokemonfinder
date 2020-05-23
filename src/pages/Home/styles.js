@@ -6,6 +6,7 @@ export const Container = styled.div`
   margin: auto;
   height: calc(100% - 140px);
 `;
+
 export const Pagination = styled.div`
   width: 100%;
   display: flex;

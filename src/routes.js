@@ -1,15 +1,15 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import Main from './pages/Main';
+import Home from './pages/Home';
 import Info from './pages/Info';
 import NotFound from './pages/NotFound';
 
 export default () => (
   <BrowserRouter>
     <Switch>
-      <Route exact path="/" component={Main} />
-      <Route exact path="/info" component={Info} />
+      <Route exact path="/" component={Home} />
+      <Route exact path="/info/:id" component={Info} />
       <Route component={NotFound} />
     </Switch>
   </BrowserRouter>
