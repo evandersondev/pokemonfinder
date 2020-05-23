@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import api from '../../services/api';
 import { Container, Pagination } from './styles';
+
+import { useQuery } from '../../hooks/useQueryString';
 
 import Card from '../../components/Card';
 import Loading from '../../components/Loading';
@@ -10,9 +12,13 @@ export default () => {
   const [pokemon, setPokemon] = useState([]);
   const [nextPage, setNextPage] = useState('');
   const [previousPage, setPreviousPage] = useState('');
-  const [offset, setOffset] = useState(0);
   const [loading, setloading] = useState(false);
+
   const history = useHistory();
+  const queryString = useQuery();
+
+  const page = parseInt(queryString.get('page') || 1);
+  const offset = 21 * (page - 1);
 
   const fetchPokemon = async () => {
     setloading(true);
@@ -32,28 +38,16 @@ export default () => {
     setloading(false);
   };
 
+  useEffect(() => {
+    fetchPokemon();
+  }, [page]);
+
   const getInfo = async (name) => {
     const { data } = await api.get(`pokemon/${name}`);
 
     history.push(`/info/${data.id}`, {
       pokemonInfo: data,
     });
-  };
-
-  useEffect(() => {
-    fetchPokemon();
-  }, [offset]);
-
-  const nextPaginate = () => {
-    if (!nextPage === false) {
-      setOffset(offset + 20);
-    }
-  };
-
-  const PrevPaginate = () => {
-    if (!previousPage === false) {
-      setOffset(offset - 20);
-    }
   };
 
   return (
@@ -65,20 +59,13 @@ export default () => {
           <Card pokemon={pokemon} getInfo={getInfo} />
 
           <Pagination>
-            <button
-              disabled={previousPage === null}
-              onClick={PrevPaginate}
-              type="button"
-            >
+            <Link disabled={previousPage === null} to={`?page=${page - 1}`}>
               Previous
-            </button>
-            <button
-              disabled={nextPage === null}
-              onClick={nextPaginate}
-              type="button"
-            >
+            </Link>
+
+            <Link disabled={nextPage === null} to={`?page=${page + 1}`}>
               Next
-            </button>
+            </Link>
           </Pagination>
         </>
       )}

@@ -13,9 +13,12 @@ export const Pagination = styled.div`
   justify-content: space-between;
   margin-bottom: 30px;
 
-  button {
+  a {
     width: 120px;
     height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: transparent;
     border: 2px solid #f6e58d;
     border-radius: 3px;
@@ -36,6 +39,7 @@ export const Pagination = styled.div`
       background: #f6e58d;
       cursor: default;
       transition: none;
+      pointer-events: none;
     }
   }
 `;

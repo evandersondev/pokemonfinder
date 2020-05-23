@@ -24,7 +24,11 @@ PokFinder
 
 ### Getting started
 
-- In your terminal with the folder opened, run the steps:
+- In your terminal, run the steps:
+
+> `git clone https://github.com/evandersondev/pokemonfinder pokfinder`
+
+> `cd pokfinder`
 
 > `yarn` or `npm install` **for install the modules**.
 
