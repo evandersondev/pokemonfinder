@@ -23,12 +23,11 @@ module.exports = {
     'no-console': 'off',
     'no-unused-vars': 'off',
     'react/prop-types': [0],
-    'guard-for-in': 'error',
     'no-restricted-syntax': 'off',
     'react/jsx-one-expression-per-line': 'off',
-    'no-await-in-loop': 'off',
     'jsx-a11y/no-noninteractive-element-interactions': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
     'no-unused-expressions': 'off',
+    camelcase: 'off',
   },
 };

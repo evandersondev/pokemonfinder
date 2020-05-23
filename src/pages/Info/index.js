@@ -32,7 +32,9 @@ export default ({ location: { state } }) => {
           <img
             onClick={clickShowBack}
             src={
-              showBack ? pokemonInfo.sprites.back : pokemonInfo.sprites.front
+              showBack
+                ? pokemonInfo.sprites.back_default
+                : pokemonInfo.sprites.front_default
             }
             alt="ImagePokemon"
           />
@@ -51,9 +53,9 @@ export default ({ location: { state } }) => {
           <h3>Base stats</h3>
 
           <ul>
-            {pokemonInfo.stats.map((stats) => (
-              <li key={stats.stat.name}>
-                {stats.stat.name}: {stats.base_stat}
+            {pokemonInfo.stats.map(({ base_stat, stat: { name } }) => (
+              <li key={name}>
+                {name}: {base_stat}
               </li>
             ))}
           </ul>
@@ -62,8 +64,8 @@ export default ({ location: { state } }) => {
         <Abilites>
           <h3>Abilities</h3>
           <ul>
-            {pokemonInfo.abilities.map((abil) => (
-              <li key={abil.ability.name}>{abil.ability.name}</li>
+            {pokemonInfo.abilities.map(({ ability: { name } }) => (
+              <li key={name}>{name}</li>
             ))}
           </ul>
         </Abilites>
@@ -72,8 +74,8 @@ export default ({ location: { state } }) => {
       <Types>
         <h3>Types</h3>
         <ul>
-          {pokemonInfo.types.map(({ type }) => (
-            <li key={type.name}>{type.name}</li>
+          {pokemonInfo.types.map(({ type: { name } }) => (
+            <li key={name}>{name}</li>
           ))}
         </ul>
       </Types>

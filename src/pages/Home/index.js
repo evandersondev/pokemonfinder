@@ -14,14 +14,14 @@ export default () => {
   const [loading, setloading] = useState(false);
   const history = useHistory();
 
-  const fetchPokemon = async (page = 0) => {
+  const fetchPokemon = async () => {
     setloading(true);
 
     const {
       data: { results, next, previous },
     } = await api.get('/pokemon', {
       params: {
-        offset: page,
+        offset,
         limit: 21,
       },
     });
@@ -34,38 +34,24 @@ export default () => {
 
   const getInfo = async (name) => {
     const { data } = await api.get(`pokemon/${name}`);
-    const pokemonInfo = {
-      name: data.name,
-      abilities: data.abilities,
-      sprites: {
-        front: data.sprites.front_default,
-        back: data.sprites.back_default,
-      },
-      height: data.height,
-      weight: data.weight,
-      stats: data.stats,
-      types: data.types,
-    };
 
     history.push(`/info/${data.id}`, {
-      pokemonInfo,
+      pokemonInfo: data,
     });
   };
 
   useEffect(() => {
     fetchPokemon();
-  }, []);
+  }, [offset]);
 
   const nextPaginate = () => {
     if (!nextPage === false) {
-      fetchPokemon(offset + 20);
       setOffset(offset + 20);
     }
   };
 
   const PrevPaginate = () => {
     if (!previousPage === false) {
-      fetchPokemon(offset - 20);
       setOffset(offset - 20);
     }
   };
