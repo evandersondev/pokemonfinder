@@ -11,12 +11,15 @@ export default () => {
         2020 &copy; - made by <strong>evandersondev</strong> 🖖
       </p>
       <div className="social">
-        <a href="https://github.com/evandersondev/pokemonfinder" target="blank">
+        <a
+          href="https://github.com/evandersondev/pokemonfinder"
+          target="_blank"
+        >
           <img src={Github} alt="Github" />
         </a>
         <a
           href="https://www.linkedin.com/in/evanderson-vasconcelos"
-          target="blank"
+          target="_blank"
         >
           <img src={Linkedin} alt="Github" />
         </a>

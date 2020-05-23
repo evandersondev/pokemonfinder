@@ -30,5 +30,6 @@ module.exports = {
     'no-unused-expressions': 'off',
     camelcase: 'off',
     radix: 'off',
+    'react/jsx-no-target-blank': 'off',
   },
 };
