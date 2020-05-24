@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, Link } from 'react-router-dom';
+import queryString from 'query-string';
+
 import api from '../../services/api';
 import { Container, Pagination } from './styles';
-
-import { useQuery } from '../../hooks/useQueryString';
 
 import Card from '../../components/Card';
 import Loading from '../../components/Loading';
@@ -15,9 +15,8 @@ export default () => {
   const [loading, setloading] = useState(false);
 
   const history = useHistory();
-  const queryString = useQuery();
-
-  const page = parseInt(queryString.get('page') || 1);
+  const query = queryString.parse(window.location.search);
+  const page = parseInt(query.page || 1);
   const offset = 21 * (page - 1);
 
   const fetchPokemon = async () => {

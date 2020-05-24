@@ -15,7 +15,7 @@ module.exports = {
     ecmaVersion: 11,
     sourceType: 'module',
   },
-  plugins: ['react', 'prettier'],
+  plugins: ['react', 'prettier', 'react-hooks'],
   rules: {
     'prettier/prettier': 'error',
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
@@ -31,5 +31,8 @@ module.exports = {
     camelcase: 'off',
     radix: 'off',
     'react/jsx-no-target-blank': 'off',
+    'import/no-extraneous-dependencies': 'off',
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
   },
 };
