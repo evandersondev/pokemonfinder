@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useRouteMatch } from 'react-router-dom';
 
 import api from '../../services/api';
 
@@ -12,12 +12,12 @@ import {
   Types,
 } from './styles';
 
-export default ({ match }) => {
+export default () => {
   const [pokemonInfo, setPokemonInfo] = useState(null);
   const [showBack, setShowBack] = useState(false);
 
   const history = useHistory();
-  const pokemonName = match.params.name;
+  const pokemonName = useRouteMatch().params.name;
 
   const clickShowBack = () => {
     !showBack ? setShowBack(true) : setShowBack(false);
