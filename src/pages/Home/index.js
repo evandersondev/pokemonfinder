@@ -16,7 +16,8 @@ export default () => {
 
   const query = queryString.parse(window.location.search);
   const page = parseInt(query.page || 1);
-  const offset = 21 * (page - 1);
+  const perPage = 21;
+  const offset = perPage * (page - 1);
 
   const fetchPokemon = async () => {
     setloading(true);
@@ -26,7 +27,7 @@ export default () => {
     } = await api.get('/pokemon', {
       params: {
         offset,
-        limit: 21,
+        limit: perPage,
       },
     });
 
