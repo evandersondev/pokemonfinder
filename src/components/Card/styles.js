@@ -1,15 +1,14 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 100%;
+  width: 220px;
   height: 100%;
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  margin: 0px 30px 15px 30px;
 
   .card {
     width: 100%;
-    max-width: 280px;
+    max-width: 220px;
     background: transparent;
     border: 0;
     color: #ffffff;
@@ -21,7 +20,7 @@ export const Container = styled.div`
     margin-bottom: 30px;
     transition: all 0.5s ease-in-out;
 
-    button {
+    a {
       width: 220px;
       height: 60px;
       display: flex;
@@ -30,6 +29,7 @@ export const Container = styled.div`
       border: 0;
       padding: 0 15px;
       background: #f6e58d;
+      color: #333333;
       cursor: pointer;
 
       img {

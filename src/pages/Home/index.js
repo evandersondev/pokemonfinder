@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import queryString from 'query-string';
 
 import api from '../../services/api';
@@ -9,12 +9,11 @@ import Card from '../../components/Card';
 import Loading from '../../components/Loading';
 
 export default () => {
-  const [pokemon, setPokemon] = useState([]);
+  const [pokemons, setPokemon] = useState([]);
   const [nextPage, setNextPage] = useState('');
   const [previousPage, setPreviousPage] = useState('');
   const [loading, setloading] = useState(false);
 
-  const history = useHistory();
   const query = queryString.parse(window.location.search);
   const page = parseInt(query.page || 1);
   const offset = 21 * (page - 1);
@@ -41,21 +40,15 @@ export default () => {
     fetchPokemon();
   }, [page]);
 
-  const getInfo = async (name) => {
-    const { data } = await api.get(`pokemon/${name}`);
-
-    history.push(`/info/${data.id}`, {
-      pokemonInfo: data,
-    });
-  };
-
   return (
     <Container>
       {loading ? (
         <Loading />
       ) : (
         <>
-          <Card pokemon={pokemon} getInfo={getInfo} />
+          {pokemons.map((pokemon) => (
+            <Card className="card" key={pokemon.name} pokemon={pokemon} />
+          ))}
 
           <Pagination>
             <Link disabled={previousPage === null} to={`?page=${page - 1}`}>

@@ -4,7 +4,9 @@ export const Container = styled.div`
   width: 90%;
   max-width: 920px;
   margin: auto;
-  height: calc(100% - 140px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 `;
 
 export const Pagination = styled.div`

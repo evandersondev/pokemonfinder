@@ -1,19 +1,17 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 import { Container } from './styles';
 import Pokeball from '../../images/pokeball.png';
 
-export default ({ pokemon, getInfo }) => {
+export default ({ pokemon }) => {
   return (
     <Container>
-      {pokemon.map(({ name }) => (
-        <div key={name} className="card">
-          <button onClick={() => getInfo(name)} type="button">
-            {name}
-            <img src={Pokeball} alt="pokeballImage" />
-          </button>
-        </div>
-      ))}
+      <div className="card">
+        <Link to={`info/${pokemon.name}`}>
+          {pokemon.name}
+          <img src={Pokeball} alt="pokeballImage" />
+        </Link>
+      </div>
     </Container>
   );
 };
