@@ -1,7 +1,7 @@
 import React from 'react';
 
+import Pokeball from 'images/pokeball.svg';
 import { Container } from './styles';
-import Pokeball from '../../images/pokeball.svg';
 
 export default () => {
   return (

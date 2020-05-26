@@ -1,12 +1,11 @@
 import React from 'react';
+import GlobalStyle from 'styles/GlobalStyle';
+import Header from 'components/Header';
+import Footer from 'components/Footer';
 
-import GlobalStyle from './styles/GlobalStyle';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Routes from 'routes';
 
-import Routes from './routes';
-
-function App() {
+export default () => {
   return (
     <>
       <Header />
@@ -16,6 +15,4 @@ function App() {
       <GlobalStyle />
     </>
   );
-}
-
-export default App;
+};

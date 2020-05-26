@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import queryString from 'query-string';
 
-import api from '../../services/api';
-import { Container, Pagination } from './styles';
+import api from 'services/api';
 
-import Card from '../../components/Card';
-import Loading from '../../components/Loading';
+import Card from 'components/Card';
+import Loading from 'components/Loading';
+import { Container, Pagination } from './styles';
 
 export default () => {
   const [pokemons, setPokemons] = useState([]);

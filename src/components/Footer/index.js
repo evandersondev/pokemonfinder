@@ -1,8 +1,8 @@
 import React from 'react';
 
+import Github from 'images/github.png';
+import Linkedin from 'images/linkedin.png';
 import { Container } from './styles';
-import Github from '../../images/github.png';
-import Linkedin from '../../images/linkedin.png';
 
 export default () => {
   return (

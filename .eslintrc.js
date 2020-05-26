@@ -34,5 +34,6 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
+    'import/no-unresolved': 'off',
   },
 };

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, useRouteMatch } from 'react-router-dom';
 
-import api from '../../services/api';
-import { heightInCm, weightInKg } from '../../utils';
+import api from 'services/api';
+import { heightInCm, weightInKg } from 'utils';
 
 import {
   Container,
