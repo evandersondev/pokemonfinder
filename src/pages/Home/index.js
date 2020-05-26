@@ -9,31 +9,24 @@ import Card from '../../components/Card';
 import Loading from '../../components/Loading';
 
 export default () => {
-  const [pokemons, setPokemon] = useState([]);
-  const [nextPage, setNextPage] = useState('');
-  const [previousPage, setPreviousPage] = useState('');
+  const [pokemons, setPokemons] = useState([]);
+  const [pagination, setPagination] = useState({});
   const [loading, setloading] = useState(false);
 
   const query = queryString.parse(window.location.search);
   const page = parseInt(query.page || 1);
   const perPage = 21;
-  const offset = perPage * (page - 1);
 
   const fetchPokemon = async () => {
     setloading(true);
 
-    const {
-      data: { results, next, previous },
-    } = await api.get('/pokemon', {
-      params: {
-        offset,
-        limit: perPage,
-      },
+    const { results, previous, next } = await api.getAllPaginated({
+      perPage,
+      page,
     });
 
-    setPokemon(results);
-    setNextPage(next);
-    setPreviousPage(previous);
+    setPokemons(results);
+    setPagination({ previous, next });
     setloading(false);
   };
 
@@ -47,16 +40,17 @@ export default () => {
         <Loading />
       ) : (
         <>
-          {pokemons.map((pokemon) => (
-            <Card className="card" key={pokemon.name} pokemon={pokemon} />
-          ))}
+          {pokemons &&
+            pokemons.map((pokemon) => (
+              <Card className="card" key={pokemon.name} pokemon={pokemon} />
+            ))}
 
           <Pagination>
-            <Link disabled={previousPage === null} to={`?page=${page - 1}`}>
+            <Link disabled={pagination.previous} to={`?page=${page - 1}`}>
               Previous
             </Link>
 
-            <Link disabled={nextPage === null} to={`?page=${page + 1}`}>
+            <Link disabled={pagination.next} to={`?page=${page + 1}`}>
               Next
             </Link>
           </Pagination>

@@ -1,5 +1,22 @@
 import { create } from 'axios';
 
-export default create({
+const pokeApi = create({
   baseURL: 'https://pokeapi.co/api/v2',
 });
+
+export default {
+  async getAllPaginated({ perPage, page = 1 }) {
+    const offset = perPage * (page - 1);
+
+    const {
+      data: { results, previous, next },
+    } = await pokeApi.get('/pokemon', {
+      params: {
+        offset,
+        limit: perPage,
+      },
+    });
+
+    return { results, previous, next };
+  },
+};
