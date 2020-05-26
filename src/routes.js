@@ -10,7 +10,7 @@ export default () => (
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/info/:name" component={Info} />
-      <Route component={NotFound} />
+      <Route path="*" component={NotFound} />
     </Switch>
   </BrowserRouter>
 );
