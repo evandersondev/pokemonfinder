@@ -41,8 +41,8 @@ export default () => {
       ) : (
         <>
           {pokemons &&
-            pokemons.map((pokemon) => (
-              <Card className="card" key={pokemon.name} pokemon={pokemon} />
+            pokemons.map(({ name }) => (
+              <Card className="card" key={name} pokemonName={name} />
             ))}
 
           <Pagination>
