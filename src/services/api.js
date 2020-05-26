@@ -19,4 +19,10 @@ export default {
 
     return { results, previous, next };
   },
+
+  async getPokemonByName({ name }) {
+    const { data } = await pokeApi.get(`pokemon/${name}`);
+
+    return data;
+  },
 };

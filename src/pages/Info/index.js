@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useHistory, useRouteMatch } from 'react-router-dom';
 
 import api from '../../services/api';
+import { heightInCm, weightInKg } from '../../utils';
 
 import {
   Container,
@@ -24,9 +25,8 @@ export default () => {
   };
 
   const getPokemon = async () => {
-    const { data } = await api.get(`pokemon/${pokemonName}`);
-
-    setPokemonInfo(data);
+    const pokemon = await api.getPokemonByName({ name: pokemonName });
+    setPokemonInfo(pokemon);
   };
 
   useEffect(() => {
@@ -52,14 +52,14 @@ export default () => {
                     ? pokemonInfo.sprites.back_default
                     : pokemonInfo.sprites.front_default
                 }
-                alt="ImagePokemon"
+                alt={pokemonInfo.name}
               />
               <span>click to see my back</span>
             </div>
 
             <strong>
-              {pokemonInfo.height * 10}
-              cm - {pokemonInfo.weight / 10}
+              {heightInCm(pokemonInfo.height)}
+              cm - {weightInKg(pokemonInfo.weight)}
               kg
             </strong>
           </Profile>

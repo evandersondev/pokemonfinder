@@ -46,11 +46,14 @@ export default () => {
             ))}
 
           <Pagination>
-            <Link disabled={pagination.previous} to={`?page=${page - 1}`}>
+            <Link
+              disabled={pagination.previous === null}
+              to={`?page=${page - 1}`}
+            >
               Previous
             </Link>
 
-            <Link disabled={pagination.next} to={`?page=${page + 1}`}>
+            <Link disabled={pagination.next === null} to={`?page=${page + 1}`}>
               Next
             </Link>
           </Pagination>
