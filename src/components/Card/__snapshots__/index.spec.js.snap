@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test render card component renders correctly 1`] = `
+<styled.div>
+  <div
+    className="card"
+  >
+    <Link
+      to="info/Pikachu"
+    >
+      Pikachu
+      <img
+        alt="pokebalL"
+        src="pokeball.png"
+      />
+    </Link>
+  </div>
+</styled.div>
+`;
