@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Container } from './styles';
-import Pokeball from '../../images/pokeball.png';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { Container } from './styles'
+import Pokeball from '../../images/pokeball.png'
 
 export default ({ pokemonName }) => {
   return (
@@ -13,5 +13,5 @@ export default ({ pokemonName }) => {
         </Link>
       </div>
     </Container>
-  );
-};
+  )
+}

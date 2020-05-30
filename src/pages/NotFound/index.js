@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
-import { Container } from './styles';
-import Pokeball from '../../images/pokeball.svg';
+import { Container } from './styles'
+import Pokeball from '../../images/pokeball.svg'
 
 export default () => {
   return (
@@ -15,5 +15,5 @@ export default () => {
       <p>You look lost on your journey!</p>
       <a href="/">Go Back Home</a>
     </Container>
-  );
-};
+  )
+}

@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
-import { Container } from './styles';
-import Logo from '../../images/logo.png';
+import { Container } from './styles'
+import Logo from '../../images/logo.png'
 
 export default () => {
   return (
@@ -15,5 +15,5 @@ export default () => {
         </div>
       </header>
     </Container>
-  );
-};
+  )
+}

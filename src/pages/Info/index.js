@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { useHistory, useRouteMatch } from 'react-router-dom';
+import React, { useState, useEffect } from 'react'
+import { useHistory, useRouteMatch } from 'react-router-dom'
 
-import api from '../../services/api';
-import { heightInCm, weightInKg } from '../../utils';
+import api from '../../services/api'
+import { heightInCm, weightInKg } from '../../utils'
 
 import {
   Container,
@@ -11,27 +11,27 @@ import {
   Stats,
   Abilites,
   Types,
-} from './styles';
+} from './styles'
 
 export default () => {
-  const [pokemonInfo, setPokemonInfo] = useState(null);
-  const [showBack, setShowBack] = useState(false);
+  const [pokemonInfo, setPokemonInfo] = useState(null)
+  const [showBack, setShowBack] = useState(false)
 
-  const history = useHistory();
-  const pokemonName = useRouteMatch().params.name;
+  const history = useHistory()
+  const pokemonName = useRouteMatch().params.name
 
   const clickShowBack = () => {
-    !showBack ? setShowBack(true) : setShowBack(false);
-  };
+    !showBack ? setShowBack(true) : setShowBack(false)
+  }
 
   const getPokemon = async () => {
-    const pokemon = await api.getPokemonByName({ name: pokemonName });
-    setPokemonInfo(pokemon);
-  };
+    const pokemon = await api.getPokemonByName({ name: pokemonName })
+    setPokemonInfo(pokemon)
+  }
 
   useEffect(() => {
-    getPokemon();
-  }, []);
+    getPokemon()
+  }, [])
 
   return (
     <Container>
@@ -98,5 +98,5 @@ export default () => {
         </>
       )}
     </Container>
-  );
-};
+  )
+}

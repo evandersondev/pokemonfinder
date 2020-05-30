@@ -1,38 +1,38 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import queryString from 'query-string';
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import queryString from 'query-string'
 
-import api from '../../services/api';
-import { Container, Pagination } from './styles';
+import api from '../../services/api'
+import { Container, Pagination } from './styles'
 
-import Card from '../../components/Card';
-import Loading from '../../components/Loading';
+import Card from '../../components/Card'
+import Loading from '../../components/Loading'
 
 export default () => {
-  const [pokemons, setPokemons] = useState([]);
-  const [pagination, setPagination] = useState({});
-  const [loading, setloading] = useState(false);
+  const [pokemons, setPokemons] = useState([])
+  const [pagination, setPagination] = useState({})
+  const [loading, setloading] = useState(false)
 
-  const query = queryString.parse(window.location.search);
-  const page = parseInt(query.page || 1);
-  const perPage = 21;
+  const query = queryString.parse(window.location.search)
+  const page = parseInt(query.page || 1)
+  const perPage = 21
 
   const fetchPokemon = async () => {
-    setloading(true);
+    setloading(true)
 
     const { results, previous, next } = await api.getAllPaginated({
       perPage,
       page,
-    });
+    })
 
-    setPokemons(results);
-    setPagination({ previous, next });
-    setloading(false);
-  };
+    setPokemons(results)
+    setPagination({ previous, next })
+    setloading(false)
+  }
 
   useEffect(() => {
-    fetchPokemon();
-  }, [page]);
+    fetchPokemon()
+  }, [page])
 
   return (
     <Container>
@@ -60,5 +60,5 @@ export default () => {
         </>
       )}
     </Container>
-  );
-};
+  )
+}
