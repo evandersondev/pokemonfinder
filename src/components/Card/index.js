@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Pokeball from 'images/pokeball.png';
 import { Container } from './styles';
+=======
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { Container } from './styles'
+import Pokeball from '../../images/pokeball.png'
+>>>>>>> code-review
 
 export default ({ pokemonName }) => {
   return (
@@ -13,5 +20,5 @@ export default ({ pokemonName }) => {
         </Link>
       </div>
     </Container>
-  );
-};
+  )
+}

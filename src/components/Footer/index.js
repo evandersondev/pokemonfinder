@@ -1,8 +1,14 @@
-import React from 'react';
+import React from 'react'
 
+<<<<<<< HEAD
 import Github from 'images/github.png';
 import Linkedin from 'images/linkedin.png';
 import { Container } from './styles';
+=======
+import { Container } from './styles'
+import Github from '../../images/github.png'
+import Linkedin from '../../images/linkedin.png'
+>>>>>>> code-review
 
 export default () => {
   return (
@@ -25,5 +31,5 @@ export default () => {
         </a>
       </div>
     </Container>
-  );
-};
+  )
+}
