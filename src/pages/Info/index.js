@@ -4,10 +4,6 @@ import { useHistory, useRouteMatch } from 'react-router-dom'
 <<<<<<< HEAD
 import api from 'services/api';
 import { heightInCm, weightInKg } from 'utils';
-=======
-import api from '../../services/api'
-import { heightInCm, weightInKg } from '../../utils'
->>>>>>> code-review
 
 import {
   Container,
